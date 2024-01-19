@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTRATION</title>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image:url('{% static "skyy.jpg" %}');
+            background-size:cover;
+
+        }
+
+        form {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 50px;
+            background: #fff;
+
+
+        }
+
+        h2 {
+            text-align: center;
+            color: #2471A3;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #DE3163;
+            color: white;
+
+        }
+
+    </style>
+    </head>
+    <body >
+
+    <form method="post" action="register">
+    {% csrf_token %}
+        <h2> REGISTRATION</h2>
+    <input type="text" name="username" placeholder="Enter the username"><br>
+    <input type="text" name="first_name" placeholder="Enter the Firstname"><br>
+    <input type="text" name="last_name" placeholder="Enter the Lastname"><br>
+    <input type="email" name="email" placeholder="Enter the email"><br>
+    <input type="password" name="password" placeholder="Enter the Password"><br>
+    <input type="password" name="password1" placeholder="Confirm Password"><br>
+    <input type="submit">
+    </form>
+
+    {% for msg in messages %}
+        <h2>{{ msg }}</h2>
+    {% endfor %}
+</body>
+</html>

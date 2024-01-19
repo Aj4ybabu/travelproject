@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image:url('{% static "land.jpg" %}');
+            background-size:cover;
+
+        }
+
+        form {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 50px;
+            background: #fff;
+
+
+        }
+
+        h2 {
+            text-align: center;
+            color: #2471A3;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #DE3163;
+            color: white;
+
+        }
+
+    </style>
+</head>
+<body >
+    <form action="login" method="post">
+        {% csrf_token %}
+        <h2>LOGIN</h2>
+        <input type="text" name="username" placeholder="Enter the username"><br>
+        <input type="password" name="password" placeholder="Enter the password"><br>
+        <input type="submit">
+    </form>
+</body>
+</html>
